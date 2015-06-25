@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<meta charset="UTF-8">
+	<title>Kanban</title>
+
+	<link rel="stylesheet" href={% static "css/bootstrap.min.css"%}>
+	<link rel="stylesheet" href={% static "css/bootstrap-editable.css"%}>
+	<link rel="stylesheet" href={% static "css/select2.min.css"%}>
+	<link rel="stylesheet" href={% static "css/kanban.css"%}>
+	<script type="text/javascript" src={% static "js/jquery.min.js"%}></script>
+	<script type="text/javascript" src={% static "js/jquery.dragsort-0.5.2.min.js"%}></script>
+	<script type="text/javascript" src={% static "js/bootstrap.min.js"%}></script>
+	<script type="text/javascript" src={% static "js/bootstrap-editable.min.js"%}></script>
+	<script type="text/javascript" src={% static "js/select2.min.js"%}></script>
+	<script type="text/javascript" src={% static "js/kanban.js"%}></script>
+	<script type="text/javascript" src={% static "js/site.js"%}></script>
+</head>
+<body>
+	<div class="row">
+		<div id="member" class="col-sm-3 column">
+			<div class="column-inner">
+				<h4 class="column-header">Member</h4>
+				<div class="avatars">
+					<!-- <span class="avatar-initials">ZQ</span> -->
+				</div>
+			</div>
+			<a href="javascript:void(0)" class="add-button" id="add-member-edit" data-type="text" data-pk="1">Add Member</a>
+		</div>
+		<div id="state" class="col-sm-3 column">
+			<div class="column-inner">
+				<h4 class="column-header">Done</h4>
+				<div class="card-list" id="state-do">
+				</div>
+			</div>
+			<a class="add-button add-button-common" href="javascript:void(0)" state="DO">Add Action</a>
+		</div>
+		<div id="state" class="col-sm-3 column">
+			<div class="column-inner">
+				<h4 class="column-header">In Progress</h4>
+				<div class="card-list" id="state-ip">
+				</div>
+			</div>
+			<a class="add-button add-button-common" href="javascript:void(0)" state="IP">Add Action</a>
+		</div>
+		<div id="state" class="col-sm-3 column">
+			<div class="column-inner">
+				<h4 class="column-header">To Do</h4>
+				<div class="card-list" id="state-td">
+				</div>
+			</div>
+			<a class="add-button add-button-common" href="javascript:void(0)" state="TD">Add Action</a>
+		</div>
+	</div>
+	<!-- add action modal -->
+	<div class="modal fade" id="add-action-modal" role="dialog" aria-labelledby="add-action-label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="action-detail add-action-detail">
+						<span id="add-action-detail-icon" class="action-detail-icon modal-left glyphicon glyphicon-blackboard"></span>
+						<textarea id="add-action-detail-content" class="action-detail-content modal-right form-control" aria-describedby="sizing-addon3"></textarea>
+					</div>
+					<br/>
+					<div class="action-state add-action-state">
+						<label id="add-action-state-label" class="action-state-label modal-left">in state </label>
+						<select id="add-action-state-content" class="action-state-content modal-right">
+							<option value="DO">Done</option>
+							<option value="IP">In Progress</option>
+							<option value="TD" selected="true">To Do</option>
+						</select>
+					</div>
+					<br/>
+					<div class="action-priority add-action-priority">
+						<span id="add-action-priority-icon" class="action-priority-icon modal-left glyphicon glyphicon-signal"></span>
+						<select id="add-action-priority-content" class="action-priority-content modal-right">
+							<option value="1">A(High)</option>
+							<option value="2">B(Medium)</option>
+							<option value="3">C(Low)</option>
+							<option value="4" selected="true">D(Proposal)</option>
+						</select>
+					</div>
+					<br/>
+					<div class="action-resp add-action-resp">
+						<span id="add-action-resp-icon" class="action-resp-icon modal-left glyphicon glyphicon-user"></span>
+						<select id="add-action-resp-content" class="action-resp-content modal-right">
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-primary" id="save-action-button">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modify action modal -->
+	<div class="modal fade" id="modify-action-modal" role="dialog" aria-labelledby="modify-action-label" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="action-detail modify-action-detail">
+						<span id="modify-action-detail-icon" class="action-detail-icon modal-left glyphicon glyphicon-blackboard"></span>
+						<textarea id="modify-action-detail-content" class="action-detail-content modal-right form-control" aria-describedby="sizing-addon3"></textarea>
+					</div>
+					<br/>
+					<div class="action-state modify-action-state">
+						<label id="modify-action-state-label" class="action-state-label modal-left">in state </label>
+						<select id="modify-action-state-content" class="action-state-content modal-right">
+							<option value="DO">Done</option>
+							<option value="IP">In Progress</option>
+							<option value="TD" selected="true">To Do</option>
+						</select>
+					</div>
+					<br/>
+					<div class="action-priority modify-action-priority">
+						<span id="modify-action-priority-icon" class="action-priority-icon modal-left glyphicon glyphicon-signal"></span>
+						<select id="modify-action-priority-content" class="action-priority-content modal-right">
+							<option value="1">A(High)</option>
+							<option value="2">B(Medium)</option>
+							<option value="3">C(Low)</option>
+							<option value="4" selected="true">D(Proposal)</option>
+						</select>
+					</div>
+					<br/>
+					<div class="action-resp modify-action-resp">
+						<span id="modify-action-resp-icon" class="action-resp-icon modal-left glyphicon glyphicon-user"></span>
+						<select id="modify-action-resp-content" class="action-resp-content modal-right">
+						</select>
+					</div>
+					<span id="modify-action-id" style="display:none;"></span>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="button" class="btn btn-warning" id="delete-action-button">Delete</button>
+					<button type="button" class="btn btn-primary" id="update-action-button">Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

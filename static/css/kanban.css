@@ -1,0 +1,283 @@
+body {
+	background: #16A085;
+	font-family: Arial;
+	font-size: 14px;
+	line-height: 18px;
+	padding: 10px 20px;
+}
+
+.row {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+.column {
+	background: #E3E3E3;
+	border-radius: 3px;
+	margin: 0 5px;
+	max-height: 100%;
+	padding: 4px 3px 3px;
+	position: relative;
+	width: 285px;
+}
+
+.column .column-header {
+	font-style: bold;
+	color: #4D4D4D;
+}
+
+.column .column-inner {
+	padding: 0 7px;
+}
+
+#admin-member-modal .modal-body {
+	padding: 10px 10px 25px;
+}
+
+.add-button {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	color: #8C8C8C;
+	display: block;
+	flex: 0 0 auto;
+	margin: 10px -3px -3px;
+	padding: 7px 10px;
+	position: relative;
+	text-decoration: none;
+}
+
+.add-button:hover {
+	background: #C3C3C3;
+	color: #222;
+	text-decoration: underline;
+}
+
+.editable-container {
+	margin-top: 10px;
+	margin-left: 8px;
+}
+
+.editable-unsaved {
+	font-weight: normal;
+}
+
+.avatars {
+	font-weight: bold;
+	font-size: 12px;
+	height: 100%;
+	width: 100%;
+}
+
+.avatars .avatar-initials{
+	display: inline-block;
+	text-decoration: none;
+	background-color: #C3C3C3;
+	color: #444;
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	padding-top: 8px;
+	margin: 4px;
+}
+
+.avatars .avatar-initials:hover{
+	text-decoration: none;
+}
+
+#admin-member {
+	background: #FFF;
+	width: 285px;
+}
+
+#admin-add-member {
+	background: #FFF;
+	width: 255px;
+	padding: 8px 3px 10px;
+}
+
+.modal-body{
+	padding: 25px 15px 15px;
+}
+
+.glyphicon {
+	color: #A6A6A6;
+}
+
+.modal-left {
+	margin: 0 10px 0 0;
+}
+
+.modal-right {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.action-detail .action-detail-content {
+	width: 530px;
+	padding: 3px 6px;
+}
+
+.action-detail .action-detail-icon {
+	font-size: 20px;
+}
+
+.action-priority .action-priority-icon {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.action-priority .action-priority-content {
+	width: 150px;
+}
+
+.action-resp .action-resp-icon {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.action-resp .action-resp-content {
+	width: 150px;
+}
+
+.action-state .action-state-label {
+	margin-left: 35px;
+	font-size: 16px;
+}
+
+.action-state .action-state-content {
+	width: 150px;
+}
+
+.card-list{
+	flex: 1 1 auto;
+	margin-bottom: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 4px 4px 1px;
+	z-index: 1;
+}
+
+.card-list .card-outer{
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	max-width: 300px;
+	min-height: 20px;
+	position: relative;
+}
+
+.card-list .card-outer .card-inner {
+	color: #4D4D4D;
+	display: block;
+	padding: 6px 8px 4px;
+	clear: both;
+	content: ".";
+	height: 100%;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.card-list .card-outer .card-inner:hover {
+	background: #F2F2F2;
+	border-bottom-color: #B3B3B3;
+	text-decoration: none;
+}
+
+.card-list .card-outer .card-inner .card-labels{
+	position: relative;
+	top: -6px;
+	pointer-events: none;
+}
+
+.card-list .card-outer .card-inner .card-labels .card-label{
+	color: #fff;
+	display: block;
+	font-weight: 700;
+	margin-right: 3px;
+	position: relative;
+	text-shadow: 0 0 5px rgba(0,0,0,0.2), 0 0 2px #000;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: blue;
+	border-radius: 0;
+	float: left;
+	height: 4px;
+	margin-bottom: 1px;
+	padding: 0;
+	width: 40px;
+	line-height: 100px;
+}
+
+.card-list .card-outer .card-inner .card-labels .card-label-1{
+	background-color: #EB4646;
+}
+
+.card-list .card-outer .card-inner .card-labels .card-label-2{
+	background-color: #FF9F19;
+}
+
+.card-list .card-outer .card-inner .card-labels .card-label-3{
+	background-color: #FAD900;
+}
+
+.card-list .card-outer .card-inner .card-labels .card-label-4{
+	background-color: #63C333;
+}
+
+.card-list .card-outer .card-inner .card-detail{
+	display: block;
+	font-weight: 400;
+	line-height: 18px;
+	margin: 0 0 4px;
+	overflow: hidden;
+	text-decoration: none;
+	word-wrap: break-word;
+	background: transparent;
+	clear: both;
+	pointer-events: none;
+}
+
+.card-list .card-outer .card-inner .card-detail:visited{
+	text-decoration: none;
+}
+
+.card-member {
+	float: right;
+	margin: 2px -8px -4px 0;
+	display: block;
+	pointer-events: none;
+}
+
+.card-member-avatar {
+	text-decoration: none;
+	background-color: #C3C3C3;
+	color: #444;
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	padding-top: 8px;
+	margin: 4px;
+	display: block;
+	float: left;
+	margin: 0 4px 4px 0;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.card-outer-placeholder {
+	background-color: #fff;
+	border: dashed 1px gray;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-bottom: 5px;
+	max-width: 300px;
+	min-height: 20px;
+	position: relative;
+}
