@@ -212,6 +212,9 @@
 		var state_ip_html = state_ip_view.empty().html();
 		var state_td_view = $('#state-td');
 		var state_td_html = state_td_view.empty().html();
+		state_do_html += '<div class="card-outer" style="pointer-events:none;"></div>';
+		state_ip_html += '<div class="card-outer" style="pointer-events:none;"></div>';
+		state_td_html += '<div class="card-outer" style="pointer-events:none;"></div>';
 		for(var i in kanban_actions){
 			var action = kanban_actions[i];
 			var member = find_member(action.fields['responsible']);
